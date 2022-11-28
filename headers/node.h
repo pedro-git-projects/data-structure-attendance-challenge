@@ -10,5 +10,10 @@ struct Node {
 		this->value = value;
 		next = nullptr;
 	}
+
+	~Node() {
+		if(value) delete value;
+		if(next) delete next;
+	}
 };
 #endif
