@@ -6,8 +6,8 @@
 
 struct LinkedList {
 	private:
-		Node* head;
-		Node* tail;
+		Node<std::string>* head;
+		Node<std::string>* tail;
 		int length;
 	public:
 		LinkedList(std::string value);
@@ -15,10 +15,10 @@ struct LinkedList {
 		void append(std::string value);
 		void prepend(std::string value);
 		void reverse();
-		Node* removeFirst();
-		Node* removeLast();
-		Node* remove(int index);
-		Node* getByIndex(int index) const;
+		Node<std::string>* removeFirst();
+		Node<std::string>* removeLast();
+		Node<std::string>* remove(int index);
+		Node<std::string>* getByIndex(int index) const;
 		bool set(int index, std::string value);
 		bool insert(int index, std::string value);
 		std::string getHead() const;

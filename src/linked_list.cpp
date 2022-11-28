@@ -1,14 +1,15 @@
 #include "linked_list.h"
+#include <string>
 
 LinkedList::LinkedList(std::string value) {
-	Node* newNode = new Node{value};
+	Node<std::string>* newNode = new Node{value};
 	head = newNode;
 	tail = newNode;
 	length = 1;
 }
 
 void LinkedList::printList() const {
-	Node* temp{head};
+	Node<std::string>* temp{head};
 	while (temp != nullptr) { 
 		std::cout << temp->value;
 		temp = temp->next;
@@ -16,7 +17,7 @@ void LinkedList::printList() const {
 }
 
 void LinkedList::append(std::string value) {
-	Node* newNode = new Node{value};
+	Node<std::string>* newNode = new Node{value};
 	if(head != nullptr) {
 		tail->next = newNode;
 		tail = newNode;
@@ -28,7 +29,7 @@ void LinkedList::append(std::string value) {
 }
 
 void LinkedList::prepend(std::string value) {
-	Node* newNode = new Node{value};
+	Node<std::string>* newNode = new Node{value};
 	if(head != nullptr) {
 		newNode->next = head;
 		head = newNode;
@@ -40,12 +41,12 @@ void LinkedList::prepend(std::string value) {
 }
 
 void LinkedList::reverse() {
-	Node* temp{head};
+	Node<std::string>* temp{head};
 	head = tail;
 	tail = temp;
 
-	Node* after{temp->next};
-	Node* before{nullptr};
+	Node<std::string>* after{temp->next};
+	Node<std::string>* before{nullptr};
 
 	for(int i = 0; i < length; i++) {
 		after = temp->next; 
@@ -55,11 +56,11 @@ void LinkedList::reverse() {
 	}
 }
 
-Node* LinkedList::removeLast() {
+Node<std::string>* LinkedList::removeLast() {
 	if(length == 0)	return nullptr;
 
-	Node* desired{head};
-	Node* temp{head};
+	Node<std::string>* desired{head};
+	Node<std::string>* temp{head};
 	while(temp->next != nullptr) {
 		desired = temp;
 		temp = temp->next;
@@ -75,10 +76,10 @@ Node* LinkedList::removeLast() {
 	return desired;
 }
 
-Node* LinkedList::removeFirst() {
+Node<std::string>* LinkedList::removeFirst() {
 	if(length == 0) return nullptr;
 
-	Node* desired{head};	
+	Node<std::string>* desired{head};	
 	head = head->next;	
 	desired->next = nullptr; 
 	length--;
@@ -88,11 +89,11 @@ Node* LinkedList::removeFirst() {
 	return desired;
 }
 
-Node* LinkedList::getByIndex(int index) const {
+Node<std::string>* LinkedList::getByIndex(int index) const {
 	if(index < 0 || index >= length) {
 		return nullptr;
 	} else {
-		Node* desired{head};
+		Node<std::string>* desired{head};
 		for(int i = 0; i != index; i++) {
 			desired = desired->next;
 		}
@@ -101,14 +102,14 @@ Node* LinkedList::getByIndex(int index) const {
 
 }
 
-Node* LinkedList::remove(int index) {
-	Node* desired{LinkedList::getByIndex(index)};
+Node<std::string>* LinkedList::remove(int index) {
+	Node<std::string>* desired{LinkedList::getByIndex(index)};
 	if(desired == nullptr) return nullptr;
 	if(index == 0) return LinkedList::removeFirst();
 	if(index == length - 1) return LinkedList::removeLast();
 
-	Node* prev{LinkedList::getByIndex(index -1)};
-	Node* temp{prev->next}; 
+	Node<std::string>* prev{LinkedList::getByIndex(index -1)};
+	Node<std::string>* temp{prev->next}; 
 	prev->next = temp->next;
 	temp->next = nullptr;
 	length--;
@@ -116,7 +117,7 @@ Node* LinkedList::remove(int index) {
 }
 
 bool LinkedList::set(int index, std::string value) {
-	Node* desired{LinkedList::getByIndex(index)};
+	Node<std::string>* desired{LinkedList::getByIndex(index)};
 	if(desired != nullptr) {
 		desired->value = value;
 		return true;
@@ -126,7 +127,7 @@ bool LinkedList::set(int index, std::string value) {
 }
 
 bool LinkedList::insert(int index, std::string value) {
-	Node* desired{getByIndex(index)};
+	Node<std::string>* desired{getByIndex(index)};
 	if(desired == nullptr) return false;
 	if(index == 0) {
 		LinkedList::prepend(value);
@@ -135,8 +136,8 @@ bool LinkedList::insert(int index, std::string value) {
 		append(value);
 		return true;
 	}
-	Node* newNode = new Node{value};
-	Node* pre{ LinkedList::getByIndex(index -1) };
+	Node<std::string>* newNode = new Node{value};
+	Node<std::string>* pre{ LinkedList::getByIndex(index -1) };
 	newNode->next = pre->next;
 	pre->next = newNode;
 	length++;
