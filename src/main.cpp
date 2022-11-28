@@ -2,16 +2,13 @@
 #include <iostream>
 
 int main() {
-	LinkedList ll{"1"};
-	ll.printList(); std::cout << "\n";
+	LinkedList<std::string> lls{"1"};
+	lls.printList(); std::cout << std::endl;
 
-	ll.append("2");
-	ll.printList(); std::cout << "\n";
+	LinkedList<int> lli{1};
+	lli.printList(); std::cout << std::endl;
 
 
-	ll.prepend("0");
-	ll.printList(); std::cout << "\n";
-
-	ll.reverse();
-	ll.printList(); std::cout << "\n";
+	LinkedList<float> llf{1};
+	llf.printList(); std::cout << std::endl;
 }

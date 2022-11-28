@@ -12,7 +12,6 @@ struct Node {
 	}
 
 	~Node() {
-		if(value) delete value;
 		if(next) delete next;
 	}
 };
