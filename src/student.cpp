@@ -34,16 +34,10 @@ std::ostream& operator<< (std::ostream& os, const Student& s) {
 	auto name{s.getName()};
 	auto registration{s.getRegistration()};
 	auto grades{s.getGrades()};
-	auto active{Utils::boolToInt(s.isActive())};
+	auto active{Utils::booleanToStatus(s.isActive())};
 
-	
-	acc += ("student: " + name);
-	acc += "\n";
-	acc += ("registration: " + registration);
-	acc += "\n";
-	acc += ("active: " + active);
-	acc += "\n";
-	acc += "grades: [  ";
+	acc += (name); acc += " ";
+	acc += "[  ";
 	for(auto grade : grades) {
 		std::stringstream stream;
 		stream << std::fixed << std::setprecision(2) << grade;
@@ -51,8 +45,41 @@ std::ostream& operator<< (std::ostream& os, const Student& s) {
 		acc += current;
 		acc += " ";
 	}
-	acc += " ]";
+	acc += " ]"; acc += " ";
+	acc += ( active);	
 
 	os << acc;
 	return os;
 };
+
+/*
+ ************ this version was more complete, but I changed it to be more
+ ************ similar to the example in the slide
+   std::ostream& operator<< (std::ostream& os, const Student& s) {
+   std::string acc{};
+   auto name{s.getName()};
+   auto registration{s.getRegistration()};
+   auto grades{s.getGrades()};
+   auto active{Utils::boolToInt(s.isActive())};
+
+
+   acc += ("student: " + name);
+   acc += "\n";
+   acc += ("registration: " + registration);
+   acc += "\n";
+   acc += ("active: " + active);
+   acc += "\n";
+   acc += "grades: [  ";
+   for(auto grade : grades) {
+   std::stringstream stream;
+   stream << std::fixed << std::setprecision(2) << grade;
+   auto current = stream.str();
+   acc += current;
+   acc += " ";
+   }
+   acc += " ]";
+
+   os << acc;
+   return os;
+   };
+*/

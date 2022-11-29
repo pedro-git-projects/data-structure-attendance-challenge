@@ -10,6 +10,8 @@ struct AttendanceList: public LinkedList<Student> {
 	void append(Student s);
 	void prepend(Student s);
 	void orderByGrade();
-	void printActive() const;
+	void printList() const;
+	bool insert(int index, Student s);
+	Node<Student>* remove(int index);
 };
 #endif

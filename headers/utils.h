@@ -5,6 +5,7 @@
 
 namespace Utils {
 	std::string boolToInt(bool b);
+	std::string booleanToStatus(bool b);
 }
 
 #endif

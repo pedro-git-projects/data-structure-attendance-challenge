@@ -16,7 +16,7 @@ int main() {
 	AttendanceList chamada{pedro};
 
 	/* appending values */
-	chamada.append(alisson);
+	chamada.prepend(alisson);
 	chamada.prepend(joao);
 	/*printing list */
 	chamada.printList(); std::cout << std::endl;
@@ -46,4 +46,8 @@ int main() {
 	chamada.prepend(alisson);
 	std::cout << chamada.getLength() << std::endl;
 	std::cout << "------------------------------------------" << std::endl;
+
+	/* testing remove && remove messages */
+	chamada.remove(39);
+	chamada.remove(36);
 }
