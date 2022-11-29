@@ -6,7 +6,7 @@
 
 template<typename L>
 struct LinkedList {
-	private:
+	protected:
 		Node<L>* head;
 		Node<L>* tail;
 		int length;
