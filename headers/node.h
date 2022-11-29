@@ -1,10 +1,17 @@
 #ifndef NODE_H
 #define NODE_H
 
-#include <string>
+template<typename T>
 struct Node {
-	std::string value;
+	T value;
 	Node* next;
-	Node(std::string value);
+
+	Node(T value): value{value} {
+		next = nullptr;
+	}
+
+	~Node() {
+		if(next) delete next;
+	}
 };
 #endif
