@@ -124,3 +124,18 @@ void AttendanceList::printList() const {
 	}
 }
 
+
+void AttendanceList::printActive() const {
+	Node<Student>* temp{head};
+	int index{1};
+	std::string index_str{};
+	while (temp != nullptr) { 
+		if(temp->value.isActive()){
+			index_str = std::to_string(index);
+			std::cout << index_str << " " << temp->value << std::endl;
+			index++;
+		}
+		temp = temp->next;
+	}
+}
+

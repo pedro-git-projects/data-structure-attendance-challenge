@@ -11,6 +11,7 @@ struct AttendanceList: public LinkedList<Student> {
 	void prepend(Student s);
 	void orderByGrade();
 	void printList() const;
+	void printActive() const;
 	bool insert(int index, Student s);
 	Node<Student>* remove(int index);
 };

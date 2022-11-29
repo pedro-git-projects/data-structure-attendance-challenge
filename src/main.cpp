@@ -9,7 +9,7 @@
 int main() {
 	/* creating students */
 	Student pedro{"Pedro", "123", std::vector<float>{9.7, 8.0}, true};
-	Student alisson{"Alisson", "123", std::vector<float>{10.0, 10.0}, true};
+	Student alisson{"Alisson", "123", std::vector<float>{10.0, 10.0}, false};
 	Student joao{"João", "123", std::vector<float>{5.0, 2.0}, true};
 
 	/* creating attendance_list */
@@ -50,4 +50,9 @@ int main() {
 	/* testing remove && remove messages */
 	chamada.remove(39);
 	chamada.remove(36);
+	std::cout << "------------------------------------------" << std::endl;
+
+	/* printing only active students */
+	chamada.printActive(); std::cout << std::endl; 
+
 }
