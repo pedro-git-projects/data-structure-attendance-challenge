@@ -5,6 +5,9 @@
 #include <sstream>
 #include <iomanip>
 
+
+Student::Student() = default;
+
 Student::Student(std::string name, std::string registrationCode, std::vector<float> grades, bool active):
 	name{name}, registrationCode{registrationCode}, grades{grades}, active{active} {};
 

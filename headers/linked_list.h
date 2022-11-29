@@ -25,7 +25,7 @@ struct LinkedList {
 		void printList() const {
 			Node<L>* temp{head};
 			while (temp != nullptr) { 
-				std::cout << temp->value;
+				std::cout << temp->value << std::endl;
 				temp = temp->next;
 			}
 		}

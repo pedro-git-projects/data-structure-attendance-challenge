@@ -6,6 +6,7 @@
 #include "utils.h"
 
 struct Student {
+		Student();
 		Student(std::string name, std::string registrationCode, std::vector<float> grades, bool active);
 		std::string getName() const;
 		std::string getRegistration() const;
