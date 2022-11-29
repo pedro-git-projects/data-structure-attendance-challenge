@@ -16,7 +16,7 @@ struct LinkedList {
 			head = newNode;
 			tail = newNode;
 			length = 1;
-		};
+		}
 
 		~LinkedList() {
 			if(head) delete head;
@@ -28,7 +28,7 @@ struct LinkedList {
 				std::cout << temp->value;
 				temp = temp->next;
 			}
-		};
+		}
 
 		void append(L value) {
 			Node<L>* newNode = new Node{value};
@@ -40,7 +40,7 @@ struct LinkedList {
 				tail = newNode;
 			}
 			length++;
-		};
+		}
 
 		void prepend(L value){
 			Node<L>* newNode = new Node{value};
@@ -52,7 +52,7 @@ struct LinkedList {
 				tail = newNode;
 			}
 			length++;
-		};
+		}
 
 		void reverse() {
 			Node<L>* temp{head};
@@ -68,7 +68,7 @@ struct LinkedList {
 				before = temp;
 				temp = after;
 			}		
-		};
+		}
 
 		Node<L>* removeFirst() {
 			if(length == 0) return nullptr;
@@ -81,8 +81,7 @@ struct LinkedList {
 			if(length == 0)	tail = nullptr;
 
 			return desired;
-
-		};
+		}
 
 		Node<L>* removeLast() {
 			if(length == 0)	return nullptr;
@@ -102,7 +101,7 @@ struct LinkedList {
 				tail = nullptr;
 			}
 			return desired;
-		};
+		}
 
 		Node<L>* remove(int index) {
 			Node<L>* desired{LinkedList::getByIndex(index)};
@@ -116,7 +115,7 @@ struct LinkedList {
 			temp->next = nullptr;
 			length--;
 			return temp;
-		};
+		}
 
 		Node<L>* getByIndex(int index) const {
 			if(index < 0 || index >= length) {
@@ -128,7 +127,7 @@ struct LinkedList {
 				}
 				return desired;
 			}		
-		};
+		}
 
 		bool set(int index, L value) {
 			Node<L>* desired{LinkedList::getByIndex(index)};
@@ -138,7 +137,7 @@ struct LinkedList {
 			} else {
 				return false;
 			}		
-		};
+		}
 
 		bool insert(int index, L value) {
 			Node<L>* desired{getByIndex(index)};
@@ -156,19 +155,19 @@ struct LinkedList {
 			pre->next = newNode;
 			length++;
 			return true;
-		};
+		}
 
 		L getHead() const {
 			return head->value;
-		};
+		}
 
 		L getTail() const {
 			return tail->value;
 
-		};
+		}
 
 		int getLength() const {
 			return length;
-		};
+		}
 };
 #endif
